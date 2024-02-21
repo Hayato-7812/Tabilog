@@ -83,6 +83,15 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+
+test:
+  <<: *default
+  host: db
+  database: tabilog_test
+  username: postgres
+  password: password
+
+
 production:
   <<: *default
   database: myapp_production
