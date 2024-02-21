@@ -1,0 +1,14 @@
+# .rubocop.yml  規則の緩和を目的とする記載
+inherit_from: .rubocop_todo.yml
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
