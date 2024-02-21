@@ -5,7 +5,7 @@
 # This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
 # For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
-name: Ruby
+name: Ruby Rspec
 
 on:
   pull_request:
@@ -25,7 +25,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
-          POSTGRES_DB: tabilog_test
+          POSTGRES_DB: tabilog_development
         ports:
           - 5432:5432
       chrome:

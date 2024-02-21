@@ -59,9 +59,9 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: myapp_test
+# test:
+#   <<: *default
+#   database: myapp_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -87,9 +87,9 @@ test:
 test:
   <<: *default
   host: <%= ENV.fetch("POSTGRES_HOST", "db") %>
-  database: s02_test
-  username: <%= ENV.fetch("POSTGRES_USER", "") %>
-  password: <%= ENV.fetch("POSTGRES_PASSWORD", "") %>
+  database: tabilog_test
+  username: <%= ENV.fetch("POSTGRES_USER", "postgres") %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD", "password") %>
 
 
 production:
