@@ -1,17 +1,29 @@
 version: '3'
+
 services:
+  web:
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/web
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: tabilog_development
+      SELENIUM_WEBDRIVER_URL: http://chrome:4444/wd/hub
   db:
     image: postgres
     environment:
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_HOST_AUTH_METHOD=trust
-  web:
-    build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: tabilog_development
     volumes:
-      - .:/myapp
+      - db_data:/var/lib/postgresql/data
+  chrome:
+    image: seleniarm/standalone-chromium
     ports:
-      - "3000:3000"
-    depends_on:
-      - db
+      - 4444:4444
 
+volumes:
+  db_data:
