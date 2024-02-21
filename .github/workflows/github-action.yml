@@ -16,6 +16,8 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
+      RAILS_ENV: test
+      POSTGRES_HOST: localhost
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
 
