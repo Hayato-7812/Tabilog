@@ -76,7 +76,7 @@ rails db:seed
 ```bash
 bin/dev
 ```
-`http://localhost:3000/login`を開いてwelcomeページが表示されれば成功！
+[http://localhost:3000](http://localhost:3000)を開いてwelcomeページが表示されれば成功！
 
 ### ログイン（ToDo）
 
