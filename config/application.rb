@@ -1,14 +1,12 @@
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails/all'
+require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-# My App モジュール
 module Myapp
-  # Myapp::Applicationクラスは、Railsアプリケーションのエントリーポイントとなるクラスです。
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0

@@ -1,4 +1,2 @@
-# ApplicationHelperモジュールは、アプリケーション全体で使用されるヘルパーメソッドを
-# 定義するための場所です。ビューで共通の機能を使用するために利用されます。
 module ApplicationHelper
 end
