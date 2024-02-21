@@ -1,4 +1,9 @@
 # .rubocop.yml  規則の緩和を目的とする記載
+
+AllCops:
+  DisabledByDefault: true
+  NewCops: enable
+  
 inherit_from: .rubocop_todo.yml
 
 Metrics/CyclomaticComplexity:
