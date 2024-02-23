@@ -19,4 +19,10 @@ RSpec.feature 'Welcome Page', type: :feature do
     # Verify that a button with text "Get Started" is displayed on the page
     expect(page).to have_content('Get Started')
   end
+
+  scenario 'Header is not displayed on root path' do
+    visit root_path
+
+    expect(page).not_to have_css('header')
+  end
 end
