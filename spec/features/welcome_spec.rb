@@ -1,22 +1,28 @@
 # spec/features/welcome_spec.rb
 
-# Railsのヘルパーメソッドを使用するためにrails_helperを読み込む
+# Load rails_helper to use Rails helper methods
 require 'rails_helper'
 
-# Welcomeページに関するフィーチャースペックを定義する
-RSpec.feature 'Welcomeページ', type: :feature do
-  # Welcomeページが正常に表示されるシナリオを定義する
-  scenario 'Welcomeページが正常に表示される' do
-    # Welcomeページにアクセスする
+# Define feature spec about the Welcome page
+RSpec.feature 'Welcome Page', type: :feature do
+  # Define scenario where Welcome page is displayed correctly
+  scenario 'Welcome page is displayed correctly' do
+    # Visit the Welcome page
     visit root_path
 
-    # "Welcome to Tabilog"というテキストがページに表示されていることを確認する
+    # Verify that the page displays the text "Welcome to Tabilog"
     expect(page).to have_content('Welcome to Tabilog')
 
-    # "Start planning your next adventure now!"というテキストがページに表示されていることを確認する
+    # Verify that the page displays the text "Start planning your next adventure now!"
     expect(page).to have_content('Start planning your next adventure now!')
 
-    # "Get Started"というテキストを持つボタンがページに表示されていることを確認する
+    # Verify that a button with text "Get Started" is displayed on the page
     expect(page).to have_content('Get Started')
+  end
+
+  scenario 'Header is not displayed on root path' do
+    visit root_path
+
+    expect(page).not_to have_css('header')
   end
 end
