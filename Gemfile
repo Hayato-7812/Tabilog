@@ -48,6 +48,13 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Add the 'gemini-ai' gem for integrating Gemini AI functionality
+gem 'gemini-ai', '~> 3.2.0'
+gem 'pycall'
+
+# Manage environment parameters
+gem 'dotenv-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
