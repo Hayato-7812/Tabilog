@@ -50,6 +50,7 @@ gem 'bootsnap', require: false
 
 # Add the 'gemini-ai' gem for integrating Gemini AI functionality
 gem 'gemini-ai', '~> 3.2.0'
+gem 'pycall'
 
 # Manage environment parameters
 gem 'dotenv-rails'
