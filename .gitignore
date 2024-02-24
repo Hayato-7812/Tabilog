@@ -33,3 +33,4 @@
 # Ignore settings of environment parameters
 .env
 
+.byebug_history
