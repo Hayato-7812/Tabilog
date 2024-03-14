@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+header {
+  background-color: #b9f2ff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding:16px;
+}
+.header-title {
+  color: #000;
+  font-family: "Grape Nuts", cursive;
+  font-size: 24px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  /* padding: 16px; */
+}
+header img{
+    width: 22px;
+    height: 22px;
+}
