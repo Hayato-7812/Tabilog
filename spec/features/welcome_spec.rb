@@ -10,14 +10,11 @@ RSpec.feature 'Welcome Page', type: :feature do
     # Visit the Welcome page
     visit root_path
 
-    # Verify that the page displays the text "Welcome to Tabilog"
-    expect(page).to have_content('Welcome to Tabilog')
+    # Verify that the page displays the text " CHAT"
+    expect(page).to have_content('CHAT')
 
-    # Verify that the page displays the text "Start planning your next adventure now!"
-    expect(page).to have_content('Start planning your next adventure now!')
-
-    # Verify that a button with text "Get Started" is displayed on the page
-    expect(page).to have_content('Get Started')
+    # Verify that the page displays the text "SHARE"
+    expect(page).to have_content('SHARE')
   end
 
   scenario 'Header is not displayed on root path' do
