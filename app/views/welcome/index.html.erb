@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to Tabilog</title>
     <%= stylesheet_link_tag 'welcome_styles', media: 'all' %>
-</head>
-<body>
-    <div class="container">
-        <h1>Welcome to Tabilog</h1>
-        <p>Start planning your next adventure now!</p>
-        <%= link_to 'Get Started', chat_room_path, class: 'btn' %>
-    </div>
-</body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <section class="welcome-wrapper">
+        <div class="welcome-container">
+          <%= image_tag 'fv.png', class: "fv-image" %>
+        </div>
+        <div class="link-container">
+          <%= link_to 'CHAT', chat_room_path, class: 'link-btn' %>
+          <a class="link-btn" href="">SHARE</a>
+          <!-- <%= link_to 'SHARE', share_room_path, class: 'btn' %> -->
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
