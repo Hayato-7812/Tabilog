@@ -15,17 +15,18 @@ class GenerativeAiHandler
     response = @gemini_pro.generate_content(prompt)
     response.text
   end
+
+  def ask_travel_plan(departure, destination, budget, night, other) 
+    prompt = "You are special travel adviser. 
+              Plan #{night}-night, #{night+1}-day trip to #{destination} from #{departure}, 
+              budget up to #{budget} yen. #{other}"
+
+    generated_text = generate_content(prompt)
+
+    puts generated_text
+  end
 end
 
-# GenerativeAiHandlerのインスタンスを作成
-ai_handler = GenerativeAiHandler.new
-
-# 任意のプロンプトを指定してgenerate_contentメソッドを呼び出す
-prompt = "You are special travel adviser. response to japanese.
-I am planning a two-night, three-day trip to Kyoto from Tokyo with a budget of up to 50,000 yen. 
-I would like to see traditional buildings in Kyoto as much as possible."
-
-generated_text = ai_handler.generate_content(prompt)
-
-# 生成されたテキストを表示
-puts generated_text
+# 以下はプログラムの動作を確認するためのコード
+# handler = GenerativeAiHandler.new
+# handler.ask_travel_plan("Tokyo", "Osaka", 50000, 2, "I want to eat Takoyaki.")
