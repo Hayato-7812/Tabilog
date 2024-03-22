@@ -1,2 +1,27 @@
+<!-- app/views/chat_room/index.html.erb -->
+
 <h1>ChatRoom#index</h1>
 <p>Find me in app/views/chat_room/index.html.erb</p>
+
+<%= form_with(url: chat_room_path, method: :post, id: "travel_plan_form", remote: true) do |form| %>
+  <!-- 旅行計画の入力フィールドやその他の要素を追加 -->
+  <%= form.submit "Create Travel Plan" %>
+<% end %>
+
+<div id="result"></div> <!-- 結果を表示するための要素 -->
+
+<script>
+  $(function() {
+    $('#travel_plan_form').on('ajax:success', function(event) {
+      var response = event.detail[0];
+      // バックエンドからのレスポンスを結果を表示する要素に挿入する
+      $('#result').html('<p>Response: ' + JSON.stringify(response) + '</p>');
+    });
+
+    $('#travel_plan_form').on('ajax:error', function(event) {
+      var error = event.detail[0];
+      // エラーメッセージを結果を表示する要素に挿入する
+      $('#result').html('<p>Error: ' + error + '</p>');
+    });
+  });
+</script>
