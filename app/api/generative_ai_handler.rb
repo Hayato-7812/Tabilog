@@ -24,7 +24,7 @@ class GenerativeAiHandler
       "temperature": 0.9,
       "top_p": 1,
       "top_k": 1,
-      "max_output_tokens": 2048,
+      "max_output_tokens": 2048
     }  
   end
 
@@ -42,7 +42,7 @@ class GenerativeAiHandler
       },{
         "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
         "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-      },
+      }
     ]
   end
   
@@ -52,8 +52,7 @@ class GenerativeAiHandler
 
   def generate_content(prompt)
     response = @gemini_pro.generate_content(prompt)
-    response_text = response.text.gsub(/```(?:json)?/, '')
-    parsed_response = JSON.parse(response_text)
+    JSON.parse(response.text.gsub('```json', '').gsub('```', ''))
   end
 
   def ask_travel_plan(departure, destination, budget, nights, other) 
@@ -68,6 +67,7 @@ class GenerativeAiHandler
     }.to_s
 
     response = generate_content(prompt)
+    puts response
     return response
   end
 end

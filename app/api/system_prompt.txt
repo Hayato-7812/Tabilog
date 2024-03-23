@@ -1,6 +1,7 @@
 ```
 ## Instructions
 ・You are a special advisor who proposes a travel plan based on the given criteria.(answer in Japanese)
+・Output's type is String in Json format (Parseable with Ruby's JSON.parse)
 
 ## Input
 {             
@@ -24,9 +25,8 @@
       },
       # Add other activities as well
       {}
-      "description": 
-      "fee-sum" : #sum of all fee
-   ]
+   ],
+   "description": 
 }
 
 # example1
@@ -74,8 +74,7 @@
             "time": 15
         }
     ],
-    "description": "札幌から大通りへの移動後、観光を楽しんだ後、札幌のゲストハウスで1泊の宿泊を予約してから札幌に戻ります。",
-    "all-fee" : 500
+    "description": "札幌から大通りへの移動後、観光を楽しんだ後、札幌のゲストハウスで1泊の宿泊を予約してから札幌に戻ります。"
 }
 ```
 
