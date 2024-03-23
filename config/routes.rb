@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   # ルートURLへのリクエストをWelcomeコントローラーのindexアクションにルーティング
   root 'welcome#index'
   
-  get 'chat_room', to: 'chat_room#index', as: 'chat_room'
-  get 'share_room', to: 'share_room#index', as: 'share_room'
+  resources :chat_room, only: [:index, :create] # chat_roomのindexとcreateアクションにルーティング
+  resources :share_room, only: [:index] # share_roomのindexアクションにルーティング
 
+  post '/chat_room/generate_plan', to: 'chat_room#generate_plan', as: 'generate_plan'
 end

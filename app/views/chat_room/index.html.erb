@@ -1,2 +1,79 @@
-<h1>ChatRoom#index</h1>
-<p>Find me in app/views/chat_room/index.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Plans</title>
+  <!-- axiosのCDNを追加 -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <h1>Travel Plans</h1>
+
+  <div id="planResult">
+    <!-- ここに旅行計画が表示されます -->
+  </div>
+
+  <%= form_tag('/chat_room/generate_plan.json', method: 'post', id: 'travelPlanForm') do %>
+    <!-- フォームの各入力フィールド -->
+    <label for="departure">Departure:</label>
+    <%= text_field_tag :departure, 'Tokyo', required: true%><br><br>
+
+    <label for="destination">Destination:</label>
+    <%= text_field_tag :destination, 'Osaka', required: true%><br><br>
+
+    <label for="budget">Budget:</label>
+    <%= number_field_tag :budget, 50000, required: true%><br><br>
+
+    <label for="nights">Nights:</label>
+    <%= text_field_tag :nights, '2', required: true%><br><br>
+
+    <label for="other">Other:</label>
+    <%= text_field_tag :other, 'Sightseeing', required: true%><br><br>
+
+    <!-- 旅行計画生成ボタン -->
+    <%= submit_tag 'Generate Travel Plan', id: 'submitBtn' %>
+  <% end %>
+
+  <!-- エラーメッセージ表示用の領域 -->
+  <div id="errorMessage" style="color: red; margin-top: 10px;"></div>
+
+  <script type="text/javascript">
+    // 旅行計画生成ボタンがクリックされたときの処理
+    const generateTravelPlan = async (event) => {
+      event.preventDefault(); // フォームのデフォルト動作をキャンセル
+
+      // フォームの入力値を取得
+      const formData = new FormData(document.getElementById('travelPlanForm'));
+      const params = {};
+      formData.forEach((value, key) => params[key] = value);
+
+      try {
+        // フォームを無効化
+        document.getElementById('travelPlanForm').querySelectorAll('input').forEach(input => input.disabled = true);
+        document.getElementById('submitBtn').disabled = true;
+
+        // 旅行計画生成リクエストを送信
+        const result = await Promise.race([
+          axios.post('/chat_room/generate_plan.json', params),
+        ]);
+
+        console.log(`result = ${JSON.stringify(result.data)}`);
+        
+        // 生成された旅行計画を表示
+        document.getElementById('planResult').innerText = JSON.stringify(result.data, null, 2);
+      } catch (error) {
+        console.error(error);
+        
+        // エラーメッセージを表示
+        document.getElementById('errorMessage').innerText = error.message;
+      } finally {
+        // フォームを有効化
+        document.getElementById('travelPlanForm').querySelectorAll('input').forEach(input => input.disabled = false);
+        document.getElementById('submitBtn').disabled = false;
+      }
+    };
+
+    // 旅行計画生成ボタンにイベントリスナーを追加
+    document.getElementById('travelPlanForm').addEventListener('submit', generateTravelPlan);
+  </script>
+</body>
+</html>

@@ -1,8 +1,8 @@
 require 'pycall'
 require 'dotenv/load'
 require 'json'
+require 'timeout'
 
-# GenerativeAiHandlerクラスの定義
 class GenerativeAiHandler
   attr_accessor :system_prompt
 
@@ -52,13 +52,11 @@ class GenerativeAiHandler
 
   def generate_content(prompt)
     response = @gemini_pro.generate_content(prompt)
-    # JSONをパースしてハッシュに変換
-    JSON.parse(response.text)
+    response_text = response.text.gsub(/```(?:json)?/, '')
+    parsed_response = JSON.parse(response_text)
   end
 
   def ask_travel_plan(departure, destination, budget, nights, other) 
-    # output : hash
-
     prompt = system_prompt + {
       input: {             
           departure:  departure,
@@ -70,7 +68,6 @@ class GenerativeAiHandler
     }.to_s
 
     response = generate_content(prompt)
-    puts response
     return response
   end
 end

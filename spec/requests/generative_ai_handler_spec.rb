@@ -5,11 +5,9 @@ RSpec.describe GenerativeAiHandler, type: :handler do
     # When testing using an API, change 'xit' to 'it'.
     xit "generates content successfully" do
       handler = GenerativeAiHandler.new
-      prompt = "Please output just only 'Tabilog'"
-      generated_text = handler.generate_content(prompt)
-      
+      generated_text = handler.ask_travel_plan("Tokyo", "Osaka", 50000, 2, "I want to eat Takoyaki.")
+      puts generated_text
       expect(generated_text).to be_present
-      expect(generated_text).to eq ("Tabilog")
     end
   end
 end
