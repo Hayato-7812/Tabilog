@@ -4,7 +4,7 @@ require 'dotenv/load'
 
 class GeminiTravelPlanGenerator
     API_KEY = ENV['GEMINI_API_KEY'].freeze
-    DATA_FILE = 'app/apis/system_prompt.json'.freeze
+    DATA_FILE = 'app/services/system_prompt.json'.freeze
   
     def generate_plan(departure, destination, budget, nights, other)
       uri = build_uri
