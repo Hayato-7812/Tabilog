@@ -1,4 +1,6 @@
 # app/controllers/chat_room_controller.rb
+require_relative '../services/gemini_content_generator.rb'
+
 class ChatRoomController < ApplicationController
   def index
   end
@@ -12,22 +14,23 @@ class ChatRoomController < ApplicationController
     other = params[:other]
   
     # 旅行計画を生成するメソッドを呼び出し
-    plan = create_travel_plan(departure, destination, budget, nights, other)
-    redirect_to generate_plan_result_path(plan: plan)
+    response = generate_travel_plan(departure, destination, budget, nights, other)
+    puts response if response
+    redirect_to generate_plan_result_path(response: response)
   end
 
   def generate_plan_result
-    @plan = JSON.pretty_generate(params["plan"])
+    @plan = JSON.pretty_generate(params["response"])
   end
 
   private
 
-  def create_travel_plan(departure, destination, budget, nights, other)
-    plan = ai_handler.ask_travel_plan(departure, destination, budget, nights, other)
+  def generate_travel_plan(departure, destination, budget, nights, other)
+    plan = ai_handler.generate_plan(departure, destination, budget, nights, other)
     return plan
   end
 
   def ai_handler
-    @ai_handler ||= GenerativeAiHandler.new 
+    @ai_handler ||= GeminiTravelPlanGenerator.new 
   end
 end
