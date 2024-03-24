@@ -1,5 +1,5 @@
 # app/controllers/chat_room_controller.rb
-require_relative '../services/gemini_content_generator.rb'
+require_relative '../apis/gemini_content_generator.rb'
 
 class ChatRoomController < ApplicationController
   def index
