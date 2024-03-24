@@ -1,0 +1,14 @@
+{
+  "name": "test_app",
+  "private": true,
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets --target=esnext --loader:.png=file --loader:.js=jsx --loader:.ts=tsx",
+    "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.3.1",
+    "esbuild": "^0.16.2",
+    "sass": "^1.56.2"
+  },
+  "version": "0.1.0"
+}
