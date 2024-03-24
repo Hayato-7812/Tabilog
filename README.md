@@ -68,6 +68,8 @@ git clone https://github.com/Hayato-7812/Tabilog.git
 コンテナ内で以下のコマンドを実行します。
 
 ```bash
+yarn install
+poetry install
 bundle install
 ```
 
