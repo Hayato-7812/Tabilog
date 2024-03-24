@@ -7,7 +7,7 @@
 <body>
   <h1>Travel Plans</h1>
 
-  <%= form_with(url: generate_plan_path, method: 'post', id: 'travelPlanForm', class: 'form', data: { disable_with: 'Processing...' }) do |f| %>
+  <%= form_with(url: generate_plan_path, method: 'post', id: 'travelPlanForm', class: 'form') do |f| %>
     <!-- フォームの各入力フィールド -->
     <div class="form__control form__control--short">
       <%= f.label :departure, class: 'form__label' %>
@@ -35,11 +35,19 @@
     </div>
 
     <!-- 旅行計画生成ボタン -->
-    <%= f.submit 'Generate Travel Plan', class: 'button button--primary' %>
+    <%= f.submit 'Generate Travel Plan', class: 'button button--primary', id: 'generateButton' %>
   <% end %>
 
   <!-- エラーメッセージ表示用の領域 -->
   <div id="errorMessage" style="color: red; margin-top: 10px;"></div>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('#travelPlanForm').addEventListener('submit', function() {
+        document.querySelector('#generateButton').setAttribute('disabled', 'disabled');
+        document.querySelector('#generateButton').value = 'Generating...';
+      });
+    });
+  </script>
 </body>
 </html>
