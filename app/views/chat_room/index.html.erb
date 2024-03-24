@@ -16,4 +16,61 @@
             </button>
         </div>
     </body>
+
+<!-- app/views/chat_room/index.html.erb -->
+<%
+=begin%>
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Plans</title>
+</head>
+<body>
+  <h1>Travel Plans</h1>
+
+  <%= form_with(url: generate_plan_path, method: 'post', id: 'travelPlanForm', class: 'form') do |f| %>
+    <!-- フォームの各入力フィールド -->
+    <div class="form__control form__control--short">
+      <%= f.label :departure, class: 'form__label' %>
+      <%= f.text_field :departure, value: 'Tokyo', class: 'form__input', required: true %><br><br>
+    </div>
+
+    <div class="form__control form__control--short">
+      <%= f.label :destination, class: 'form__label' %>
+      <%= f.text_field :destination, value: 'Osaka', class: 'form__input', required: true %><br><br>
+    </div>
+
+    <div class="form__control form__control--short">
+      <%= f.label :budget, class: 'form__label' %>
+      <%= f.number_field :budget, value: 50000, class: 'form__input', required: true %><br><br>
+    </div>
+
+    <div class="form__control form__control--short">
+      <%= f.label :nights, class: 'form__label' %>
+      <%= f.text_field :nights, value: '2', class: 'form__input', required: true %><br><br>
+    </div>
+
+    <div class="form__control form__control--short">
+      <%= f.label :other, class: 'form__label' %>
+      <%= f.text_field :other, value: 'Sightseeing', class: 'form__input', required: true %><br><br>
+    </div>
+
+    <!-- 旅行計画生成ボタン -->
+    <%= f.submit 'Generate Travel Plan', class: 'button button--primary', id: 'generateButton' %>
+  <% end %>
+
+  <!-- エラーメッセージ表示用の領域 -->
+  <div id="errorMessage" style="color: red; margin-top: 10px;"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('#travelPlanForm').addEventListener('submit', function() {
+        document.querySelector('#generateButton').setAttribute('disabled', 'disabled');
+        document.querySelector('#generateButton').value = 'Generating...';
+      });
+    });
+  </script>
+</body> 
+<%
+=end%>
 </html>
