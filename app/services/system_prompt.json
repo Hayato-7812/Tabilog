@@ -1,0 +1,49 @@
+{
+    "contents": [
+      {
+        "parts": [
+          {
+            "text": "## Instructions\n・You are a special advisor who proposes a travel plan based on the given criteria.(answer in Japanese)\n・Output's type is String in Json format (Parseable with Ruby's JSON.parse)\n\n## Input\n{             \n   departure :  \n   destination:\n   budget：\n   nights：\n   other：        \n}\n\n## Output (simple JSON format (do not write \"```\"))\n{             \n   \"plan\": [\n      {\n          \"subject\": \"\", # Type of activity (e.g., travel, sightseeing, meals, lodging, etc.)\n          \"start_point\": \"\", # Point of departure\n          \"goal_point\": \"\", # Arrival point\n          \"transportation\": \"\", # means of transportation (e.g. train, bullet train, walking, bus, etc.)\n          \"fee\": 0, # Cost (in yen)\n          \"time\": 0 # Time required (minutes)\n      },\n      # Add other activities as well\n      {}\n   ],\n   \"description\": \n}"
+          },
+          {
+            "text": "Travel Conditions {\n    \"departure\": \"札幌駅\",\n    \"budget\": 20000,\n    \"nights\": \"1泊\",\n    \"other\": \"観光\"\n}"
+          },
+          {
+            "text": "output:Attractive Travel Planning {\n    \"plan\": [\n        {\n            \"subject\": \"移動\",\n            \"start_point\": \"札幌駅\",\n            \"goal_point\": \"大通り駅\",\n            \"transportation\": \"地下鉄\",\n            \"fee\": 250,\n            \"time\": 15\n        },\n        {\n            \"subject\": \"観光\",\n            \"start_point\": \"大通公園\",\n            \"goal_point\": \"大通公園\",\n            \"transportation\": \"\",\n            \"fee\": 0,\n            \"time\": 90\n        },\n        {\n            \"subject\": \"宿泊\",\n            \"start_point\": \"札幌ゲストハウス\",\n            \"goal_point\": \"札幌ゲストハウス\",\n            \"transportation\": \"\",\n            \"fee\": 5000,\n            \"time\": null\n        },\n        {\n            \"subject\": \"移動\",\n            \"start_point\": \"大通り駅\",\n            \"goal_point\": \"札幌駅\",\n            \"transportation\": \"地下鉄\",\n            \"fee\": 250,\n            \"time\": 15\n        }\n    ],\n    \"description\": \"札幌から大通りへの移動後、観光を楽しんだ後、札幌のゲストハウスで1泊の宿泊を予約してから札幌に戻ります。\"\n}"
+          },
+          {
+            "text": "Travel Conditions {\n    \"departure\": \"東京駅\",\n    \"budget\": 50000,\n    \"nights\": \"2泊\",\n    \"other\": \"ショッピング\"\n}"
+          },
+          {
+            "text": "output:Attractive Travel Planning # example2 の期待される出力\n{\n    \"plan\": [\n        {\n            \"subject\": \"移動\",\n            \"start_point\": \"東京駅\",\n            \"goal_point\": \"渋谷駅\",\n            \"transportation\": \"電車\",\n            \"fee\": 150,\n            \"time\": 10\n        },\n        {\n            \"subject\": \"ショッピング\",\n            \"start_point\": \"渋谷109\",\n            \"goal_point\": \"渋谷109\",\n            \"transportation\": \"\",\n            \"fee\": 25000,\n            \"time\": 120\n        },\n        {\n            \"subject\": \"宿泊\",\n            \"start_point\": \"渋谷ホテル\",\n            \"goal_point\": \"渋谷ホテル\",\n            \"transportation\": \"\",\n            \"fee\": 20000,\n            \"time\": null\n        },\n        {\n            \"subject\": \"移動\",\n            \"start_point\": \"渋谷駅\",\n            \"goal_point\": \"東京駅\",\n            \"transportation\": \"電車\",\n            \"fee\": 150,\n            \"time\": 10\n        }\n    ],\n    \"description\": \"東京から渋谷への移動後、ショッピングを楽しんだ後、渋谷のホテルで2泊の宿泊を予約してから東京に戻ります。\"\n}"
+          }
+        ]
+      }
+    ],
+    "generationConfig": {
+      "temperature": 0.9,
+      "topK": 1,
+      "topP": 1,
+      "maxOutputTokens": 2048,
+      "stopSequences": []
+    },
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+      }
+    ]
+  }
+  

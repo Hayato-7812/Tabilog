@@ -321,6 +321,7 @@ DEPENDENCIES
   bootsnap
   byebug
   capybara
+  dotenv
   dotenv-rails
   factory_bot_rails
   faker
