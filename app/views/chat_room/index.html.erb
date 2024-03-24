@@ -1,5 +1,26 @@
-<!-- app/views/chat_room/index.html.erb -->
+<!-- index.html.erb -->
 <!DOCTYPE html>
+
+<html>
+    <head>
+        <%= stylesheet_link_tag 'chat_room', media: 'all' %>
+    </head>
+    <body>
+        <div class = "chat_zone">
+        </div>
+        <div class = "textbox_contents">
+            <textarea class = "input-box" placeholder = "メッセージを入力してください"></textarea>
+            <!-- <input type = "text" class = "input-box" placeholder = "メッセージを入力してください"> -->
+            <button class = "btn">
+                <img src = "/assets/plane.png">
+            </button>
+        </div>
+    </body>
+
+<!-- app/views/chat_room/index.html.erb -->
+<%
+=begin%>
+ <!DOCTYPE html>
 <html>
 <head>
   <title>Travel Plans</title>
@@ -49,5 +70,7 @@
       });
     });
   </script>
-</body>
+</body> 
+<%
+=end%>
 </html>

@@ -1,0 +1,36 @@
+/* chat_room.css */
+@charset "UTF-8";
+
+.chat_zone {
+    margin-top: 69%;
+    background: white;
+}
+.textbox_contents {
+    margin: 10px 12%;
+    display: flex;
+    align-items: stretch;
+    height: 35px;
+}
+
+/* テキストボックス */
+.input-box {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #FFF8BC;
+    background: #FFF8BC;
+    border-radius: 5px;
+    resize: none;
+    margin-right: 10px;
+}
+
+/* 送信ボタン */
+.btn {
+    width: 40px;
+    padding: 4px;
+    background-color: #B9F2FF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
