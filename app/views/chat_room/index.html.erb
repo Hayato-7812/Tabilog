@@ -4,21 +4,110 @@
 <html>
     <head>
         <%= stylesheet_link_tag 'chat_room', media: 'all' %>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <%= javascript_include_tag "chat_room.js" %>
     </head>
     <body>
+      <%
+=begin%>
+ <%= form_with(url: generate_plan_path, method: 'post', id: 'travelPlanForm', class: 'form') do |f| %>
+      <!-- フォームの各入力フィールド -->
+      <div class="form__control form__control--short">
+        <%= f.label :departure, class: 'form__label' %>
+        <%= f.text_field :departure, value: '', class: 'form__input', id: 'chat_departure', required: true %><br><br>
+      </div>
+
+      <div class="form__control form__control--short">
+        <%= f.label :destination, class: 'form__label' %>
+        <%= f.text_field :destination, value: 'Osaka', class: 'form__input', id: 'chat_destination', required: true %><br><br>
+      </div>
+
+      <div class="form__control form__control--short">
+        <%= f.label :budget, class: 'form__label' %>
+        <%= f.number_field :budget, value: 50000, class: 'form__input', id: 'chat_budget', required: true %><br><br>
+      </div>
+
+      <div class="form__control form__control--short">
+        <%= f.label :nights, class: 'form__label' %>
+        <%= f.text_field :nights, value: '2', class: 'form__input', id: 'chat_nights', required: true %><br><br>
+      </div>
+
+      <div class="form__control form__control--short">
+        <%= f.label :other, class: 'form__label' %>
+        <%= f.text_field :other, value: 'Sightseeing', class: 'form__input', id: 'chat_other', required: true %><br><br>
+      </div>
+
+      <!-- 旅行計画生成ボタン -->
+      <%= f.submit 'Generate Travel Plan', class: 'button button--primary', id: 'generateButton' %>
+    <% end %>
+
+    <!-- エラーメッセージ表示用の領域 -->
+    <div id="errorMessage" style="color: red; margin-top: 10px;"></div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('#travelPlanForm').addEventListener('submit', function() {
+          document.querySelector('#generateButton').setAttribute('disabled', 'disabled');
+          document.querySelector('#generateButton').value = 'Generating...';
+        });
+      });
+    </script> 
+<%
+=end%>
+      <div class = "chat_room pr">
         <div class = "chat_zone">
+
+          <div class="chat-box">
+            <div class="chat-face">
+              <img src="/assets/someone.png" alt="自分のチャット画像です。" width="90" height="90">
+            </div>
+            <div class="chat-area">
+              <div class="chat-hukidashi">
+                旅行支援アプリ"Tabilog"へようこそ！！<br>
+                ここではいくつかの質問に答えていただくだけで<br>
+                あなたに旅行プランを提案致します！！<br>
+                早速、最初の質問なのですが、出発地は何処でしょうか？？
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-box hidden" id="talk_departure">
+            <div class ="chat-contents">
+              <div class="chat-face-r">
+                <img src="/assets/someone.png" alt="自分のチャット画像です。" width="90" height="90">
+              </div>
+              <div class="chat-area reflect">
+                <div class="chat-hukidashi-r reflect">
+                  ふきだしなのですーふきだしですーふきだー
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-box hidden" id="question_destination">
+            <div class="chat-face">
+              <img src="/assets/someone.png" alt="自分のチャット画像です。" width="90" height="90">
+            </div>
+            <div class="chat-area">
+              <div class="chat-hukidashi">
+                ありがとうございます。続いての質問です！<br>
+                旅行の目的地は何処でしょうか？？
+              </div>
+            </div>
+          </div>
+
         </div>
-        <div class = "textbox_contents">
+        <div class = "textbox_contents pa">
             <textarea class = "input-box" placeholder = "メッセージを入力してください"></textarea>
-            <!-- <input type = "text" class = "input-box" placeholder = "メッセージを入力してください"> -->
             <button class = "btn">
                 <img src = "/assets/plane.png">
             </button>
         </div>
+      </div>
     </body>
 
 <!-- app/views/chat_room/index.html.erb -->
-<%
+<% 
 =begin%>
  <!DOCTYPE html>
 <html>
