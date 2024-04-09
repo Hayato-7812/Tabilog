@@ -16,8 +16,9 @@ html, body {
 }
 
 .chat_zone {
-    overflow: scroll;
+    overflow: auto;
     margin-top: 10px;
+    height: calc(100% - 55px);
 }
 .textbox_contents {
     display: flex;
@@ -49,21 +50,41 @@ html, body {
     font-size: 16px;
 }
 
+.generate_button {
+    width: 157px;
+    height: 35px;
+    padding: 4px;
+    margin-top: 10px;
+    background-color: #e2f9fc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-image: url('plan.png');
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding-left: 23px; 
+    text-align: center; 
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.plan_icon {
+    width: 30px;
+}
+
 /* チャットレイアウト */
 .chat-box {
     width: 100%;
     height: auto;
     overflow: hidden; /*floatの解除*/
     margin-bottom: 20px;
+    margin-left: 25px;
 }
 .chat-face {
     float: left;
     margin-right: -120px;
-}
-
-.chat-face-r {
-    float: right;
-    margin-left: -120px;
 }
 
 .chat-face img, .chat-face-r img {
@@ -91,25 +112,25 @@ html, body {
     margin-top: 8px;
     margin-right: 5px;
     margin-bottom: 5px;
-    /* border: 1px solid gray; ←削除 */
     border-radius: 20px;
-    position: relative; /*追記*/
-    background-color:  #B9F2FF; /*追記*/
+    position: relative; 
+    background-color:  #B9F2FF; 
     filter: drop-shadow(0px 0px 2px #38AECC);
 }
 
 .chat-hukidashi-r {
     display: inline-block; /*コメントの文字数に合わせて可変*/
     padding: 15px 20px;
-    margin-left: 120px;
+    margin-left: 50px;
     margin-top: 8px;
-    /* border: 1px solid gray; ←削除 */
+    margin-bottom: 5px;
     border-radius: 20px;
-    position: relative; /*追記*/
-    background-color:  #B9F2FF; /*追記*/
+    position: relative; 
+    background-color:  #B9F2FF; 
     filter: drop-shadow(0px 0px 2px #38AECC);
+    white-space: pre-wrap;
 }
-/* ↓追記↓ */
+
 .chat-hukidashi:after {
     content: "";
     position: absolute;
