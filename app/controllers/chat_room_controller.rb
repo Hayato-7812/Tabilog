@@ -16,11 +16,19 @@ class ChatRoomController < ApplicationController
     # 旅行計画を生成するメソッドを呼び出し
     response = generate_travel_plan(departure, destination, budget, nights, other)
     puts response if response
-    redirect_to generate_plan_result_path(response: response)
+    total_fee = 0
+    response["plan"].each do |point|
+      total_fee += point["fee"].to_i
+    end
+    description = response["description"]
+    plan = response["plan"]
+    redirect_to generate_plan_result_path(description: description, plan: plan, total_fee: total_fee)
   end
 
   def generate_plan_result
-    @plan = JSON.pretty_generate(params["response"])
+    @description = params["description"]
+    @plan = params["plan"]
+    @total_fee = params["total_fee"]
   end
 
   private
