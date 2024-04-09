@@ -16,7 +16,8 @@ html, body {
 }
 
 .chat_zone {
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     margin-top: 10px;
     height: calc(100% - 55px);
 }
