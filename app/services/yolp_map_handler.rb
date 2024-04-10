@@ -70,6 +70,6 @@ class YOLPMapHandler
     end
 end
 
-# handler = YOLPMapHandler.new
-# result = handler.contents_geocoder("東京駅")
-# puts result
+handler = YOLPMapHandler.new
+result = handler.contents_geocoder("長野の善光寺")
+puts result
