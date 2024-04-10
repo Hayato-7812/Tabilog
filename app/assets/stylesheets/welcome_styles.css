@@ -29,7 +29,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #edd5c3;
+  background-color: #edd7c3;
   overflow-x: hidden;
   overflow-wrap: break-word;
 }
@@ -110,8 +110,8 @@ img {
   padding-top: 144px;
 }
 .fv-image {
-  width: 392px;
-  height: 392px;
+  width: 450px;
+  height: 450px;
 }
 .link-container {
   display: flex;
