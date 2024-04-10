@@ -11,11 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var latlngs = [];
     waypoints.forEach(function (point) {
-        L.marker([point.longitude, point.latitude], { title: point.name }).addTo(map);
-        latlngs.push(new L.LatLng(point.longitude, point.latitude));
+      var marker = L.marker([point.longitude, point.latitude], { title: point.name }).addTo(map);
+      marker.bindPopup(`${point.name}`,{autoClose:false}).openPopup()
+      latlngs.push(new L.LatLng(point.longitude, point.latitude));
     });
     latlngs.push(new L.LatLng(waypoints[0].longitude, waypoints[0].latitude));
-    var line = L.polyline(latlngs, {snakingSpeed: 200});
-    line.addTo(map).snakeIn();
-    path.snakeIn();
+    L.polyline(latlngs).addTo(map);
 });
