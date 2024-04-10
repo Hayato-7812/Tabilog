@@ -14,6 +14,20 @@
   <%= javascript_include_tag 'controllers/leaflet_map.js' %>
 </head>
 <body>
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% else %>
+  <h1>Travel Plan Result</h1>
+
+  <div id="planResult">
+    <!-- 整形された形で表示 -->
+    <h1>生成結果：<%= @description %></h1>
+    <p><%= @plan %></p>
+    <p>料金：<%= @total_fee %></p>
+  </div>
   <div id="mapid"></div>
+<% end %>
 </body>
 </html>

@@ -37,9 +37,10 @@ class ChatRoomController < ApplicationController
     waypoints = []
     places.each do |point|
       response = contents_geocoder(point)
+      next if response.nil?
+      
       name = response[:Name][:text] 
       coordinates = response[:Geometry][:Coordinates][:text].split(',')
-      next if coordinates.nil?
 
       waypoints << { 
         name: name,
