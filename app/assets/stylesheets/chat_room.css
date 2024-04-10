@@ -1,15 +1,32 @@
 /* chat_room.css */
 @charset "UTF-8";
 
+html, body {
+    height: 100%;
+}
+
+.chat_room {
+    margin: 0 12%;
+    height: calc(100% - 62px);
+    border: 2px solid;
+    border-right-color: #eddacb;
+    border-left-color: #eddacb;
+    border-top-color: #edd5c3;
+    border-bottom-color: #edd5c3;
+}
+
 .chat_zone {
-    margin-top: 69%;
-    background: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 10px;
+    height: calc(100% - 55px);
 }
 .textbox_contents {
-    margin: 10px 12%;
     display: flex;
     align-items: stretch;
     height: 35px;
+    width: 100%;
+    bottom: 10px;
 }
 
 /* テキストボックス */
@@ -32,5 +49,135 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+}
+
+.generate_button {
+    width: 157px;
+    height: 35px;
+    padding: 4px;
+    margin-top: 10px;
+    background-color: #e2f9fc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-image: url('plan.png');
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding-left: 23px; 
+    text-align: center; 
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.plan_icon {
+    width: 30px;
+}
+
+/* チャットレイアウト */
+.chat-box {
+    width: 100%;
+    height: auto;
+    overflow: hidden; /*floatの解除*/
+    margin-bottom: 20px;
+    margin-left: 25px;
+}
+.chat-face {
+    float: left;
+    margin-right: -120px;
+}
+
+.chat-face img, .chat-face-r img {
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px #ddd;
+}
+.chat-area {
+    width: 100%;
+    float: right;
+}
+
+.reflect {
+    transform: scale(-1 ,1);
+}
+
+.chat-contents {
+    float: right;
+}
+
+.chat-hukidashi {
+    display: inline-block; /*コメントの文字数に合わせて可変*/
+    padding: 15px 20px;
+    margin-left: 120px;
+    margin-top: 8px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    position: relative; 
+    background-color:  #B9F2FF; 
+    filter: drop-shadow(0px 0px 2px #38AECC);
+}
+
+.chat-hukidashi-r {
+    display: inline-block; /*コメントの文字数に合わせて可変*/
+    padding: 15px 20px;
+    margin-left: 50px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    position: relative; 
+    background-color:  #B9F2FF; 
+    filter: drop-shadow(0px 0px 2px #38AECC);
+    white-space: pre-wrap;
+}
+
+.chat-hukidashi:after {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 18px;
+    margin-top: 0;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent  #B9F2FF transparent transparent;
+}
+.chat-hukidashi-r:after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 18px;
+    margin-top: 0;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #B9F2FF;
+}
+.someone {
+    background-color: #BCF5A9;
+}
+.someone:after {
+    border-color: transparent #BCF5A9 transparent transparent;
+}
+
+.pr {
+    position: relative;
+}
+
+.pa {
+    position: absolute;
+}
+
+.fl {
+    float: left;
+}
+
+.hidden {
+    display: none;
 }
 

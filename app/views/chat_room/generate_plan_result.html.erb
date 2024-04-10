@@ -9,7 +9,9 @@
 
   <div id="planResult">
     <!-- 整形された形で表示 -->
-    <%= @plan.html_safe %>
+    <h1>生成結果：<%= @description %></h1>
+    <p><%= @plan %></p>
+    <p>料金：<%= @total_fee %></p>
   </div>
 </body>
 </html>

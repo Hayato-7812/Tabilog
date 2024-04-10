@@ -2,66 +2,180 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <%= stylesheet_link_tag 'chat_room', media: 'all' %>
-    </head>
-    <body>
-        <div class = "chat_zone">
+  <head>
+      <%= stylesheet_link_tag 'chat_room', media: 'all' %>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <%= javascript_include_tag "chat_room.js" %>
+  </head>
+  <body>
+    <div class = "chat_room pr">
+      <div class = "chat_zone">
+        <div class="chat-box">
+          <div class="chat-face">
+            <img src="/assets/Tabilog_kun.png" alt="自分のチャット画像です。" width="90" height="90">
+          </div>
+          <div class="chat-area">
+            <div class="chat-hukidashi">
+              旅行支援アプリ"Tabilog"へようこそ！！<br>
+              ここではいくつかの質問に答えていただくだけで<br>
+              あなたに旅行プランを提案致します！！<br>
+              早速、最初の質問なのですが、出発地は何処でしょうか？？
+            </div>
+          </div>
         </div>
-        <div class = "textbox_contents">
-            <textarea class = "input-box" placeholder = "メッセージを入力してください"></textarea>
-            <!-- <input type = "text" class = "input-box" placeholder = "メッセージを入力してください"> -->
-            <button class = "btn">
-                <img src = "/assets/plane.png">
-            </button>
+
+        <div class="chat-box hidden" id="talk_departure">
+          <div class ="chat-contents">
+            <div class="chat-area reflect">
+              <div class="chat-hukidashi-r reflect">
+                出発地
+              </div>
+            </div>
+          </div>
         </div>
-    </body>
 
-<!-- app/views/chat_room/index.html.erb -->
-<%
-=begin%>
- <!DOCTYPE html>
-<html>
-<head>
-  <title>Travel Plans</title>
-</head>
-<body>
-  <h1>Travel Plans</h1>
+        <div class="chat-box hidden" id="question_destination">
+          <div class="chat-face">
+            <img src="/assets/Tabilog_kun.png" alt="自分のチャット画像です。" width="90" height="90">
+          </div>
+          <div class="chat-area">
+            <div class="chat-hukidashi">
+              ありがとうございます。続いての質問です！<br>
+              旅行の目的地は何処でしょうか？？
+            </div>
+          </div>
+        </div>
 
-  <%= form_with(url: generate_plan_path, method: 'post', id: 'travelPlanForm', class: 'form') do |f| %>
-    <!-- フォームの各入力フィールド -->
-    <div class="form__control form__control--short">
-      <%= f.label :departure, class: 'form__label' %>
-      <%= f.text_field :departure, value: 'Tokyo', class: 'form__input', required: true %><br><br>
+        <div class="chat-box hidden" id="talk_destination">
+          <div class ="chat-contents">
+            <div class="chat-area reflect">
+              <div class="chat-hukidashi-r reflect">
+                目的地
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-box hidden" id="question_budget">
+          <div class="chat-face">
+            <img src="/assets/Tabilog_kun.png" alt="自分のチャット画像です。" width="90" height="90">
+          </div>
+          <div class="chat-area">
+            <div class="chat-hukidashi">
+              ありがとうございます。続いての質問です！<br>
+              旅行の予算はいくらでお考えですか？？
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-box hidden" id="talk_budget">
+          <div class ="chat-contents">
+            <div class="chat-area reflect">
+              <div class="chat-hukidashi-r reflect">
+                予算
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-box hidden" id="question_nights">
+          <div class="chat-face">
+            <img src="/assets/Tabilog_kun.png" alt="自分のチャット画像です。" width="90" height="90">
+          </div>
+          <div class="chat-area">
+            <div class="chat-hukidashi">
+              ありがとうございます。続いての質問です！<br>
+              何泊のご予定でしょうか？？
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-box hidden" id="talk_nights">
+          <div class ="chat-contents">
+            <div class="chat-area reflect">
+              <div class="chat-hukidashi-r reflect">
+                泊数
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-box hidden" id="question_other">
+          <div class="chat-face">
+            <img src="/assets/Tabilog_kun.png" alt="自分のチャット画像です。" width="90" height="90">
+          </div>
+          <div class="chat-area">
+            <div class="chat-hukidashi">
+              その他、旅行計画に組み込んでほしい事があれば教えてください。<br>
+              (ない場合には'なし'とご入力ください)
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-box hidden" id="talk_other">
+          <div class ="chat-contents">
+            <div class="chat-area reflect">
+              <div class="chat-hukidashi-r reflect">
+                その他
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-box hidden" id="generate_plan">
+          <div class="chat-face">
+            <img src="/assets/Tabilog_kun.png" alt="自分のチャット画像です。" width="90" height="90">
+          </div>
+          <div class="chat-area">
+            <div class="chat-hukidashi">
+              <div>
+                以上で質問は終了です。<br>
+                生成結果を表示させたい場合は以下のボタンを押して生成してください。
+              </div>
+              <%= form_with(url: generate_plan_path, method: 'post', id: 'travelPlanForm', class: 'form') do |f| %>
+                <!-- フォームの各入力フィールド -->
+                <div class="form__control form__control--short hidden">
+                  <%= f.label :departure, class: 'form__label' %>
+                  <%= f.text_field :departure, value: 'Hokkaido', class: 'form__input', id: 'chat_departure', required: true %><br><br>
+                </div>
+
+                <div class="form__control form__control--short hidden">
+                  <%= f.label :destination, class: 'form__label' %>
+                  <%= f.text_field :destination, value: 'Osaka', class: 'form__input', id: 'chat_destination', required: true %><br><br>
+                </div>
+
+                <div class="form__control form__control--short hidden">
+                  <%= f.label :budget, class: 'form__label' %>
+                  <%= f.number_field :budget, value: 50000, class: 'form__input', id: 'chat_budget', required: true %><br><br>
+                </div>
+
+                <div class="form__control form__control--short hidden">
+                  <%= f.label :nights, class: 'form__label' %>
+                  <%= f.text_field :nights, value: '2', class: 'form__input', id: 'chat_nights', required: true %><br><br>
+                </div>
+
+                <div class="form__control form__control--short hidden">
+                  <%= f.label :other, class: 'form__label' %>
+                  <%= f.text_field :other, value: 'Sightseeing', class: 'form__input', id: 'chat_other', required: true %><br><br>
+                </div>
+
+                <!-- 旅行計画生成ボタン -->
+                <%= f.submit '生成結果を表示', class: 'button button--primary generate_button', id: 'generateButton' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class = "textbox_contents pa">
+          <textarea class = "input-box" placeholder = "メッセージを入力してください"></textarea>
+          <button class = "btn">
+              <img src = "/assets/plane.png">
+          </button>
+      </div>
     </div>
-
-    <div class="form__control form__control--short">
-      <%= f.label :destination, class: 'form__label' %>
-      <%= f.text_field :destination, value: 'Osaka', class: 'form__input', required: true %><br><br>
-    </div>
-
-    <div class="form__control form__control--short">
-      <%= f.label :budget, class: 'form__label' %>
-      <%= f.number_field :budget, value: 50000, class: 'form__input', required: true %><br><br>
-    </div>
-
-    <div class="form__control form__control--short">
-      <%= f.label :nights, class: 'form__label' %>
-      <%= f.text_field :nights, value: '2', class: 'form__input', required: true %><br><br>
-    </div>
-
-    <div class="form__control form__control--short">
-      <%= f.label :other, class: 'form__label' %>
-      <%= f.text_field :other, value: 'Sightseeing', class: 'form__input', required: true %><br><br>
-    </div>
-
-    <!-- 旅行計画生成ボタン -->
-    <%= f.submit 'Generate Travel Plan', class: 'button button--primary', id: 'generateButton' %>
-  <% end %>
-
-  <!-- エラーメッセージ表示用の領域 -->
-  <div id="errorMessage" style="color: red; margin-top: 10px;"></div>
-
+    <div id="errorMessage" style="color: red; margin-top: 10px;"></div>
+  </body>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       document.querySelector('#travelPlanForm').addEventListener('submit', function() {
@@ -69,8 +183,5 @@
         document.querySelector('#generateButton').value = 'Generating...';
       });
     });
-  </script>
-</body> 
-<%
-=end%>
+  </script> 
 </html>
