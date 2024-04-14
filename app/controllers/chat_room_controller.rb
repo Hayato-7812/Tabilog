@@ -58,7 +58,7 @@ class ChatRoomController < ApplicationController
   end
   
   def map_handler
-    @map_handler ||= YOLPMapHandler.new
+    @map_handler ||= YolpMapHandler.new
   end
 
   def generate_travel_plan(departure, destination, budget, nights, other)
