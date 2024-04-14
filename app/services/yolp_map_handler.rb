@@ -4,7 +4,7 @@ require 'json'
 require 'dotenv/load'
 require 'nokogiri'
 
-class YOLPMapHandler
+class YolpMapHandler
   YOLP_CLIENT_ID = ENV['YOLP_CLIENT_ID']
 
   def contents_geocoder(query, category="landmark")
