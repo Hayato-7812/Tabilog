@@ -1,23 +1,19 @@
-<!-- application.html.erb -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tabilog</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Tabilog</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <% unless current_page?(root_path) %> 
-      <%= render "shared/header" %>
-    <% end %>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap" rel="stylesheet">
+</head>
+<body>
+  <% unless current_page?(root_path) %> 
+    <%= render "shared/header" %>
+  <% end %>
+  <%= yield %>
+</body>
 </html>

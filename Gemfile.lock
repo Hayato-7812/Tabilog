@@ -118,8 +118,14 @@ GEM
       faraday-typhoeus (~> 1.1)
       googleauth (~> 1.8)
       typhoeus (~> 1.4, >= 1.4.1)
+    geocoder (1.8.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    gon (6.4.0)
+      actionpack (>= 3.0.20)
+      i18n (>= 0.7)
+      multi_json
+      request_store (>= 1.0)
     google-cloud-env (2.1.1)
       faraday (>= 1.0, < 3.a)
     googleauth (1.11.0)
@@ -143,6 +149,11 @@ GEM
     jwt (2.8.0)
       base64
     language_server-protocol (3.17.0.3)
+    leaflet-markercluster-rails (0.7.0)
+      railties (>= 3.1)
+    leaflet-rails (1.9.4)
+      actionpack (>= 4.2.0)
+      railties (>= 4.2.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -221,6 +232,8 @@ GEM
     rainbow (3.1.1)
     rake (13.1.0)
     regexp_parser (2.9.0)
+    request_store (1.6.0)
+      rack (>= 1.4)
     rexml (3.2.6)
     rspec-core (3.13.0)
       rspec-support (~> 3.13.0)
@@ -326,8 +339,12 @@ DEPENDENCIES
   factory_bot_rails
   faker
   gemini-ai (~> 3.2.0)
+  geocoder
+  gon
   importmap-rails
   jbuilder
+  leaflet-markercluster-rails
+  leaflet-rails
   overcommit
   pg (~> 1.1)
   puma (~> 5.0)
