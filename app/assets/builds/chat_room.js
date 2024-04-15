@@ -2,6 +2,12 @@
   // app/javascript/chat_room.js
   $(function() {
     talk_num = 0;
+    $(".input-box").keydown(function(event) {
+      if (event.keyCode === 13 && event.ctrlKey || event.keyCode === 13 && event.metaKey) {
+        event.preventDefault();
+        $(".btn").click();
+      }
+    });
     $(".btn").on("click", function() {
       if ($(".input-box").val() == "") {
         alert("\u30E1\u30C3\u30BB\u30FC\u30B8\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044");

@@ -1,5 +1,12 @@
 $(function() {
     talk_num = 0;
+    // Ctrl + Enterキーが押された時の処理
+    $('.input-box').keydown(function(event) {
+        if ((event.keyCode === 13 && event.ctrlKey) || (event.keyCode === 13 && event.metaKey)) {
+            event.preventDefault(); // デフォルト動作を無効にする
+            $('.btn').click(); // ボタンクリックのイベントを発火させる
+        }
+    });
     $('.btn').on('click', function() {
         if ($('.input-box').val() == ''){
             alert('メッセージを入力してください');

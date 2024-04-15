@@ -19,12 +19,12 @@ html, body {
     overflow-y: auto;
     overflow-x: hidden;
     margin-top: 10px;
-    height: calc(100% - 55px);
+    height: calc(100% - 65px);
 }
 .textbox_contents {
     display: flex;
     align-items: stretch;
-    height: 35px;
+    height: 45px;
     width: 100%;
     bottom: 10px;
 }
@@ -38,12 +38,13 @@ html, body {
     border-radius: 5px;
     resize: none;
     margin-right: 10px;
+    font-size: 16px;
 }
 
 /* 送信ボタン */
 .btn {
-    width: 40px;
-    padding: 4px;
+    width: 48px;
+    padding: 6px 4px;
     background-color: #B9F2FF;
     border: none;
     border-radius: 5px;
