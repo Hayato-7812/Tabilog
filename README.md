@@ -1,7 +1,12 @@
 # 旅行計画アプリ 「Tabilog」
-![スクリーンショット 2024-02-19 19 30 33](https://github.com/Hayato-7812/Tabilog/assets/63275973/c59d780f-f384-40b1-92e1-9ac74249bde3)
 
-<img width="50%" alt="image" src="https://github.com/Hayato-7812/Tabilog/assets/63275973/6110ddf2-13a4-4002-af0c-4413310a4f65">
+<img width="40%" alt="image" src="https://github.com/Hayato-7812/Tabilog/assets/63275973/c59d780f-f384-40b1-92e1-9ac74249bde3">
+
+
+<img width="40%" alt="image" src="https://github.com/Hayato-7812/Tabilog/assets/63275973/3a2ef655-c783-4992-a3e9-3cc427b47f01">
+
+
+<img width="40%" alt="image" src="https://github.com/Hayato-7812/Tabilog/assets/63275973/6110ddf2-13a4-4002-af0c-4413310a4f65">
 
 
 このリポジトリは、明治大学総合数理学部に在籍していたお友達4人によって2024/02/19より始動されたハッカソンプロジェクトのリポジトリです。
